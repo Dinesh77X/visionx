@@ -1,38 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Support My Project - Crypto Fundraising</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vision X Production</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d1117;
-      color: #c9d1d9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
+      color: #fff;
     }
 
-    .container {
-      background-color: #161b22;
-      padding: 40px;
-      border-radius: 16px;
+    .main-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      gap: 30px;
+    }
+
+    .left-section, .right-section {
+      flex: 1;
+      min-width: 300px;
       max-width: 600px;
-      width: 100%;
-      box-shadow: 0 0 20px rgba(88, 101, 242, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .left-section {
+      background: linear-gradient(to right, #ff004f, #8e2de2);
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    .left-section h1 {
+      font-size: 40px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .left-section p {
+      font-size: 18px;
+      color: #f0f0f0;
+    }
+
+    .caption-box {
+      margin-top: 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .caption-box h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .caption-box p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .right-section {
+      background-color: #161b22;
+      color: #c9d1d9;
       text-align: center;
     }
 
-    h1 {
+    .right-section h1 {
       color: #58a6ff;
       margin-bottom: 20px;
     }
 
-    p {
+    .right-section p {
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 30px;
@@ -44,7 +89,7 @@
       padding: 15px;
       border-radius: 10px;
       margin-bottom: 20px;
-      word-break: break-all;
+      word-break: break-word;
       font-size: 16px;
       cursor: pointer;
       transition: background 0.3s ease;
@@ -61,31 +106,45 @@
       display: none;
     }
 
-    .qr {
-      margin-top: 20px;
-    }
-
     .qr img {
       width: 140px;
       border-radius: 8px;
       border: 2px solid #30363d;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>🚀 Help Fund My Flim Production Startup</h1>
-    <p>I’m starting a bold and creative film production company focused on producing high-quality, original content for a global audience.  
+  <div class="main-wrapper">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h1>Welcome to Vision X Production</h1>
+      <p>Your ultimate destination for premium adult content</p>
+
+      <div class="caption-box">
+        <h3>🕒 Current Time</h3>
+        <p id="currentTime">Loading time...</p>
+        <h3>📞 Contact Us</h3>
+        <p>Email: trexfundriser@gmail.com</p>
+      
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <h1>🚀 Help Fund My Film Production Startup</h1>
+      <p>I’m starting a bold and creative film production company focused on producing high-quality, original content for a global audience.  
         Your support will help bring powerful stories to life on screen!</p>
 
-    <div class="wallet-box" onclick="copyAddress()" id="walletAddress">
+      <div class="wallet-box" onclick="copyAddress()" id="walletAddress">
         bc1qc9f0mdyhm99284m7vpzjh7waygxdc6axxl94lx
-    </div>
-    <div class="copied" id="copyMsg">✔️ Wallet address copied to clipboard!</div>
+      </div>
+      <div class="copied" id="copyMsg">✔️ Wallet address copied to clipboard!</div>
 
-    <div class="qr">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=bc1qc9f0mdyhm99284m7vpzjh7waygxdc6axxl94lx" alt="Crypto QR Code">
+      <div class="qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=bc1qc9f0mdyhm99284m7vpzjh7waygxdc6axxl94lx" alt="Crypto QR Code">
+      </div>
     </div>
   </div>
 
@@ -100,6 +159,16 @@
         }, 2000);
       });
     }
+
+    // Update current time
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleString();
+      document.getElementById("currentTime").innerText = timeString;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000); // update every second
   </script>
 
 </body>
