@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Support My Project - Crypto Fundraising</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #161b22;
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(88, 101, 242, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      color: #58a6ff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .wallet-box {
+      background-color: #0d1117;
+      border: 1px dashed #58a6ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      word-break: break-all;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .wallet-box:hover {
+      background-color: #1e2228;
+    }
+
+    .copied {
+      color: #28a745;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .qr {
+      margin-top: 20px;
+    }
+
+    .qr img {
+      width: 140px;
+      border-radius: 8px;
+      border: 2px solid #30363d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚀 Help Fund My Flim Production Startup</h1>
+    <p>I’m starting a bold and creative film production company focused on producing high-quality, original content for a global audience.  
+        Your support will help bring powerful stories to life on screen!</p>
+
+    <div class="wallet-box" onclick="copyAddress()" id="walletAddress">
+        bc1qc9f0mdyhm99284m7vpzjh7waygxdc6axxl94lx
+    </div>
+    <div class="copied" id="copyMsg">✔️ Wallet address copied to clipboard!</div>
+
+    <div class="qr">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=bc1qc9f0mdyhm99284m7vpzjh7waygxdc6axxl94lx" alt="Crypto QR Code">
+    </div>
+  </div>
+
+  <script>
+    function copyAddress() {
+      const address = document.getElementById("walletAddress").innerText;
+      navigator.clipboard.writeText(address).then(() => {
+        const msg = document.getElementById("copyMsg");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
